@@ -1,0 +1,8 @@
+include ./partials/head.pug
+
+div(class='container')
+  h1 message: #{message}
+  h2= error.status
+  pre= error.stack
+
+include ./partials/scripts.pug
