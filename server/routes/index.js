@@ -16,7 +16,7 @@ router.get('/todos', function (req, res) {
   .then(function (todos) { res.json(todos) })
 })
 
-router.get('/todo/:id', function (req, res) {
+router.get('/todos/:id', function (req, res) {
   models.Todo.find({ where: { id: req.params.id }})
   .then(function (todo) { res.json(todo) })
 })
@@ -29,7 +29,7 @@ router.post('/todos', function (req, res) {
   .then(function (todo) { res.json(todo) })
 })
 
-router.put('/todo/:id', function (req, res) {
+router.put('/todos/:id', function (req, res) {
   models.Todo.find({ where: { id: req.params.id }})
   .then(function (todo) {
     if (todo) {
