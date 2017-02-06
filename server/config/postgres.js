@@ -23,7 +23,7 @@ config.production = {}
 
 if (process.env.VCAP_APPLICATION) {
   const appEnv = cfenv.getAppEnv()
-  const connUri = appEnv.getService('postgres-core').credentials.uri
+  const connUri = appEnv.getService('postgres-test').credentials.uri
   const connUriParts = url.parse(connUri)
 
   config.production.host = connUriParts.hostname
