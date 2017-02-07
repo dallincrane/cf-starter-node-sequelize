@@ -2,10 +2,12 @@ var path = require('path')
 var express = require('express')
 var favicon = require('serve-favicon')
 var logger = require('morgan')
-var cookieParser = require('cookie-parser')
+var session = require('express-session')
 var bodyParser = require('body-parser')
 
 var routes = require('./routes/index.js')
+
+var config = require('./config/index.js')
 
 var app = express()
 
@@ -16,7 +18,8 @@ app.use(logger('dev'))
 app.use(favicon(path.join(__dirname, '../client/images/favicon.ico')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser())
+console.log(config.session)
+app.use(session(config.session))
 app.use(express.static(path.join(__dirname, '../client')))
 
 app.use('/', routes)

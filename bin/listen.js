@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var app = require('../server/app')
 var appEnv = require('cfenv').getAppEnv()
 var debug = require('debug')('nps:server')
